@@ -32,18 +32,17 @@ set SERVERFILE="%APPDATA%\.emacs.d\server\server"
 set SERVER=%SERVERPROGRAM% %EMACSVARIABLES%
 set SCRIPTNAME="%~dp0%0"
 
-
 :PARSEOPTIONS
-if "%1"=="--help" (
+if '%1'=='--help' (
     call :SHOWHELP
     goto EXIT
 )
 call :CHECKPREREQUISITES
-if "%1"=="--install" (
+if '%1'=='--install' (
     call :INSTALL
     goto EXIT
 )
-if "%1"=="--kill" (
+if '%1'=='--kill' (
     call :KILLSERVER
     goto EXIT
 )
@@ -53,7 +52,7 @@ if not exist %SERVERFILE% (
     REM make sure that the Emacs server is running
     start "" %SERVER% %*
 ) else (
-    if "%1"=="" (
+    if '%1'=='' (
         REM create a new frame if no parameters were given
         %CLIENTPROGRAM% -c
     ) else (
